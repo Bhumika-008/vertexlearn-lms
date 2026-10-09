@@ -8,8 +8,4 @@ export default defineConfig({
     host: "0.0.0.0",
     allowedHosts: ["vertexlearn-lms-production.up.railway.app"],
   },
-  preview: {
-    host: "0.0.0.0",
-    allowedHosts: ["vertexlearn-lms-production.up.railway.app"],
-  },
 });
