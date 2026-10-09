@@ -1,0 +1,5 @@
+{
+  "name":"vertexlearn-backend","version":"1.0.0","private":true,"type":"module",
+  "scripts":{"start":"node src/server.js"},
+  "dependencies":{"express":"latest","cors":"latest","pg":"latest"}
+}
