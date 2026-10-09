@@ -12,7 +12,7 @@ const courses=[
 function App(){
  const [role,setRole]=useState("Student"),[page,setPage]=useState("Dashboard"),[mobile,setMobile]=useState(false),[chat,setChat]=useState([]),[q,setQ]=useState("");
  const nav=role==="Student"?["Dashboard","My Courses","Assignments","Quizzes","AI Tutor","Certificates"]:role==="Instructor"?["Dashboard","My Courses","Create Course","Analytics","Announcements"]:["Dashboard","Users","Course Approval","Platform Metrics","Moderation"];
- const ask=async()=>{if(!q.trim())return; const question=q;setQ("");setChat(c=>[...c,{me:question}]); try{let r=await fetch("http://localhost:8000/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question,course_id:1})});let d=await r.json();setChat(c=>[...c,{bot:d.answer,sources:d.sources}])}catch{setChat(c=>[...c,{bot:"AI service is starting. Please try again in a moment."}])}};
+ const ask=async()=>{if(!q.trim())return; const question=q;setQ("");setChat(c=>[...c,{me:question}]); try{let r=await fetch("https://invigorating-eagerness-production.up.railway.app/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question,course_id:1})});let d=await r.json();setChat(c=>[...c,{bot:d.answer,sources:d.sources}])}catch{setChat(c=>[...c,{bot:"AI service is starting. Please try again in a moment."}])}};
  return <div className="app">
   <aside className={mobile?"side open":"side"}><div className="brand"><div className="logo">V</div><div><b>VertexLearn</b><small>AI Learning Platform</small></div></div>
    <div className="rolebox"><span>Viewing as</span><select value={role} onChange={e=>{setRole(e.target.value);setPage("Dashboard")}}><option>Student</option><option>Instructor</option><option>Admin</option></select></div>
